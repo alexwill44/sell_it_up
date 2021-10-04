@@ -1,6 +1,7 @@
 // temp database
 
-class Product {
+
+  class Product {
     constructor(data) {
       this.name = data.name;
       this.price = data.price;
@@ -8,7 +9,7 @@ class Product {
       this.id = this.#generateId();
     }
   
-      /**
+    /**
      * @description This is a private method that returns an unique id
      * @param {number} len
      * @returns string
@@ -26,7 +27,7 @@ class Product {
       return uid;
     }
   }
-
+  
   class Collection {
     #Model;
     #items;
@@ -66,26 +67,26 @@ class Product {
   
       return callBack(error, item);
     }
-  }; 
-
-module.exports = new Collection(Product, [
+  }
+  
+  module.exports = new Collection(Product, [
     {
-      name: 'Internet Friends',
+      name: "Internet Friends",
       price: 29,
       image:
-        'https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_6de889fb-b540-49e4-b733-3af0baaa7f63_x1440.jpg?v=1571274629',
+        "https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_6de889fb-b540-49e4-b733-3af0baaa7f63_x1440.jpg?v=1571274629",
     },
     {
-      name: 'Angry Pants',
+      name: "Angry Pants",
       price: 35,
       image:
-        'https://cdn.shopify.com/s/files/1/1297/1509/products/HERO_c5b0ec76-ad06-4cc7-a165-6129e11a8ff6_x1440.jpg?v=1571274622',
+        "https://cdn.shopify.com/s/files/1/1297/1509/products/HERO_c5b0ec76-ad06-4cc7-a165-6129e11a8ff6_x1440.jpg?v=1571274622",
     },
     {
-      name: 'Dead Cool',
+      name: "Dead Cool",
       price: 50,
       image:
-        'https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_40030160-f468-4d50-8f30-c8b9733ce84e_x1440.jpg?v=1575020412',
+        "https://cdn.shopify.com/s/files/1/1297/1509/products/hero1_40030160-f468-4d50-8f30-c8b9733ce84e_x1440.jpg?v=1575020412",
     },
   ]);
 

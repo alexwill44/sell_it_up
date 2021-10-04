@@ -3,7 +3,7 @@
 
 /* === Internal Modules === */
 
-const Product = require('./models/product');
+const Product = require('./models/Product');
 
 /* === System Variables === */
     const app = express();
