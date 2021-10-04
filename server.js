@@ -3,90 +3,39 @@
 
 /* === Internal Modules === */
 
+const Product = require('./models/product');
+
 /* === System Variables === */
     const app = express();
 
 /* === Routes === */
 
+/* 
+    M odels
+    V eiws
+    C controllers
+*/
+
 // .get('url', call back function(request, responce){})
+ 
+// == products
 
-// home route
-    app.get('/', function (request, responce) {
-// request is incoming
-// responce is outgoing
 
-// .send(data)
-    responce.send('Hellow World');
-    });
-
-// temp database
-    const products = [ 't-shirt', 'shoes', 'necklace', 'Baller wrist band'];
-
-// products 
+//  index 
     app.get('/products', function(req, res){
-        res.send(products);
-    });
-
-/*   // first product 
-    app.get('/products/0', function(rec, res){
-        res.send(products[0]);
-    });
-
-//second product
-    app.get('/products/1', function(rec, res){
-        res.send(products[1]);
-    });
-
-//thrid product
-    app.get('/products/2', function(rec, res){
-        res.send(products[2]);
-    }); */
-
-// product show 
-
-// NOTE ORDER MATTERS 
-
-// product HELP
-    app.get('/products/help', function (req, res){
-        res.send('Help');
-    })
-   
-// url parameters
-    app.get('/products/:index', function (req, res){
-        console.log(req.params);
-        res.send(products[req.params.index]);
+        res.send(Product.find);
     });
 
 
-// cats route
-    app.get('/cats', function (request, responce){
-        responce.send('Charley');
-    })
-
-//dogs route
-    app.get('/dogs', function (request, responce){
-        responce.send('Milo');
-    });
-
-// server params 
-    app.get('/user/:id', (req, res) => {
-        res.send(req.params);
-    });
-
-// multiple paramsc - all params must be provided to hit the route 
-// add nums
-    app.get ('/add/:x/:y', function (req, res){
-    
-        const x = parseInt(req.params.x);
-        const y = parseInt(req.params.y);
-
-        res.send(`${+x+y}`);
-    });
-
-// Query params - are optional
-// ?q=cats&type=gif
-    app.get('/search', function (req, res){
-        res.send(req.query);
+//  show 
+    app.get('/products/:id', function (req, res){
+       Product.findById(req.params.id, function ( error, product) {
+           if (error){
+              return res.send(error)
+           }{
+               res.send(product);
+           }
+       });
     });
 
 /* === Server Listener === */
